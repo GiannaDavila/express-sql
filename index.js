@@ -9,7 +9,7 @@ const app = express ()
 app.get('/customers', async (req,res)=> {
     const pool =new Pool (creds)
     const customers = await pool.query ("SELECT * FROM customers")
-    .catch (err => res.status(500).send(err))
+        .catch (err => res.status(500).send(err))
     res.send(customers.rows)
     pool.end()
 })
